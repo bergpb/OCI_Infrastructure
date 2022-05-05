@@ -39,10 +39,10 @@ resource "oci_core_instance" "_" {
     subnet_id  = oci_core_subnet._.id
     private_ip = each.value.ip_address
   }
-  #metadata = {
-  #  ssh_authorized_keys = join("\n", local.authorized_keys)
+  metadata = {
+    ssh_authorized_keys = join("\n", local.authorized_keys)
   #  user_data           = data.cloudinit_config._[each.key].rendered
-  #}
+  }
 }
 
 locals {
@@ -55,3 +55,4 @@ locals {
     }
   }
 }
+
