@@ -41,7 +41,6 @@ resource "oci_core_instance" "_" {
   }
   metadata = {
     ssh_authorized_keys = join("\n", local.authorized_keys)
-  #  user_data           = data.cloudinit_config._[each.key].rendered
   }
 }
 
