@@ -6,7 +6,7 @@ Create a k3s cluster into OCI Always Free Tier Instances
 
 1. Generate ssh keys: `ssh-keygen -t ed25519 -f oci`
 2. Copy these files into `k3s-terraform` folder: `cp oci* k3s-terraform`
-3. Create a new dir based on the `sample` directory: `cp -R inventory/sample inventory/cluster`
+3. Create a new dir based on the `sample` directory: `cp -R k3s-ansible/inventory/sample k3s-ansible/inventory/cluster`
 4. Install `oci` cli: [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
 
 ### Deploying nodes in OCI:
