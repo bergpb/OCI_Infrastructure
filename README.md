@@ -6,7 +6,8 @@ Create a k3s cluster into OCI Always Free Tier Instances
 
 1. Generate ssh keys: `ssh-keygen -t ed25519 -f oci`
 2. Copy these files into `k3s-terraform` folder: `cp oci* k3s-terraform`
-3. Install `oci` cli: [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
+3. Create a new dir based on the `sample` directory: `cp -R inventory/sample inventory/cluster`
+4. Install `oci` cli: [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
 
 ### Deploying nodes in OCI:
 
@@ -19,7 +20,7 @@ Create a k3s cluster into OCI Always Free Tier Instances
 
 1. Go to `k3s-ansible` folder
 2. Copy sample hosts files
-3. Open `hosts.ini` file and change with your ips from oci node deployment
+3. Open `k3s-ansible/inventory/cluster/hosts.ini` file and change with your ips from oci node deployment
 4. Run Ansible playbook to install and configure k3s: `ansible-playbook site.yml -i inventory/cluster/hosts.ini --private-key "oci"`
 
 Now you should be able to connect with ssh in node1 instance and run kubectl commands.
