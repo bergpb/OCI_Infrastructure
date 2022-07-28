@@ -38,6 +38,12 @@
   pip:
     name: docker
 
+- name: add user opc to group docker
+  user:
+    name: "{{ user }}"
+    groups: docker
+    append: yes
+
 - name: Pull default Docker image
   community.docker.docker_image:
     name: "{{ default_container_image }}"
