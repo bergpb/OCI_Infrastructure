@@ -6,7 +6,7 @@
   roles:
     - role: prereq
     - role: download
-    - role: raspberrypi
+    - role: docker
 
 - name: Create k3s master
   hosts: master
