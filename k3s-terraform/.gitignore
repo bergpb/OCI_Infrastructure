@@ -5,5 +5,7 @@ terraform.tfstate*
 # SSH keys
 id_rsa*
 
-# K8s
+# K3s
 kubeconfig
+
+.DS_Store
