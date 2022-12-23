@@ -3,15 +3,15 @@ terraform {
     bucket   = "terraform-states"
     key      = "networking/terraform.tfstate"
     region   = "us-ashburn-1"
-    endpoint = "https://acme.compat.objectstorage.us-ashburn-1.oraclecloud.com"
-    shared_credentials_file     = "../terraform-states_bucket_credentials"
+    endpoint = "https://objectstorage.us-ashburn-1.oraclecloud.com/n/ids4dyhxibcj/b/K3S_Terraform"
+    #shared_credentials_file     = "../terraform-states_bucket_credentials"
     skip_region_validation      = true
     skip_credentials_validation = true
     skip_metadata_api_check     = true
     force_path_style            = true
   }
 }
-/*
+
 module "oci_core_instance" {
   source = "git::https://github.com/alessonviana/OCI_MODULES.git"
   how_many_nodes           = var.how_many_nodes
@@ -26,4 +26,3 @@ module "oci_core_vcn" {
   source     = "git::https://github.com/alessonviana/OCI_MODULES.git"
   cidr_block = var.cidr_block
 }
-*/
