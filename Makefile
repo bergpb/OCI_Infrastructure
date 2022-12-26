@@ -1,5 +1,5 @@
 oci:
-	echo "34" | oci session authenticate
+	echo "38" | oci session authenticate
 
 terraform:
 	terraform -chdir=k3s-terraform/ init
