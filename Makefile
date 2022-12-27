@@ -1,4 +1,5 @@
 oci:
+	rm -r /$USER/alesson/.oci 
 	echo "38" | oci session authenticate
 
 terraform:
