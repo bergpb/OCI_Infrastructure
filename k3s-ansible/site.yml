@@ -1,6 +1,7 @@
 ---
 - name: Prepare cluster installation
   hosts: k3s_cluster
+  user: ubuntu
   gather_facts: yes
   become: yes
   roles:
@@ -10,12 +11,14 @@
 
 - name: Create k3s master
   hosts: master
+  user: ubuntu
   become: yes
   roles:
     - role: k3s/master
 
 - name: Create k3s nodes
   hosts: node
+  user: ubuntu
   become: yes
   roles:
     - role: k3s/node
