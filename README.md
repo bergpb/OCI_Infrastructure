@@ -29,23 +29,23 @@ Create a k3s cluster into OCI Always Free Tier Instances
 
 [k3s_cluster]
 
-192.168.23.10 #node01 IP
-192.168.23.12  #node02 IP
-192.168.23.13   #node03 IP
+- 192.168.23.10 #node01 IP
+- 192.168.23.12  #node02 IP
+- 192.168.23.13   #node03 IP
 
 [master]
 
-192.168.23.10 #node01 IP
+- 192.168.23.10 #node01 IP
 
 [node]
 
-192.168.23.12 #node02 IP
-192.168.23.13  #node03 IP
+- 192.168.23.12 #node02 IP
+- 192.168.23.13  #node03 IP
 
 
 3. In your terminal run: `$make ansible` 
 
-### Installing k3s via Ansible:
+### Destroy K3S cluster in OCI::
 If you need to destroy the all nodes you must run: `$make terraform_destroy`
 
 
