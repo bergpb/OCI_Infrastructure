@@ -22,3 +22,15 @@
   become: yes
   roles:
     - role: k3s/node
+
+- name: Rename k3s nodes
+  hosts: master
+  become: true
+  tasks:
+    - name: Rename labels in k3s nodes
+      command: >-
+        kubectl label nodes {{ item }} kubernetes.io/role=worker
+      loop:
+        - node2
+        - node3
+        - node4
