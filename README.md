@@ -26,6 +26,8 @@ Create a k3s cluster into OCI Always Free Tier Instances
 1. Run `$touch k3s-ansible/inventory/sample/hosts.ini`
 2. After create this file you need to put there the nodes Public IP. `Obs: You can get this info on OCI Dash`
 [File Example:]
+
+
 ![alt text](k3s-ansible/files/img.png)
 
 3. In your terminal run: `$make ansible` 
