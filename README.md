@@ -4,24 +4,44 @@ Create a k3s cluster into OCI Always Free Tier Instances
 
 ### Preparing:
 
-1. Generate ssh keys: `ssh-keygen -t ed25519 -f oci`
-2. Copy these files into `k3s-terraform` folder: `cp oci* k3s-terraform`
-3. Create a new dir based on the `sample` directory: `cp -R k3s-ansible/inventory/sample k3s-ansible/inventory/cluster`
-4. Install `oci` cli: [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
+1. You must create an account in Oracle Cloud [OCI] (https://signup.cloud.oracle.com/?language=en&sourceType=:ow:o:p:feb:0916FreePageBannerButton&intcmp=:ow:o:p:feb:0916FreePageBannerButton)
+2. Install `oci` cli: [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
+3. Install `Terraform`: [Install Terraform] (https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+4. Install `Ansible` : [Ansible Installation] (https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
-### Deploying nodes in OCI:
+### Deploying K3S cluster in OCI:
 
-1. Enter into `k3s-terraform` folder
-2. Login with your `oci` account: `oci session authenticate`
-3. Run `terraform plan` and after `terraform apply`
-4. Get node ips after on the end of previously command, please keep them visible, we will use it on next steps
+1. In your terminal run: `make oci` 
+[OBS:] This commnat is an autommation to you authenticate in OCI, this command drive you to OCI page to you authorize the integration.
+2. Now, run: `make terraform`
+[OBS:] This commnat will call run a `terraform init` and `terraform apply --auto-approve` it's mean that you will start your cluster creation.
 
-### Installing k3s with Ansible:
+[OBS:] This repo is a Terraform module client and this repo should call this Terraform module (https://github.com/alessonviana/OCI_MODULES)
 
-1. Go to `k3s-ansible` folder
-2. Copy sample hosts files
-3. Open `k3s-ansible/inventory/cluster/hosts.ini` file and change with your ips from oci node deployment
-4. Run Ansible playbook to install and configure k3s: `ansible-playbook site.yml -i inventory/cluster/hosts.ini --private-key "oci"`
+### Installing k3s via Ansible:
+
+1. Run `touch k3s-ansible/inventory/sample/hosts.ini`
+2. After create this file you need to put there the nodes Public IP. (You can get this info on OCI Dash)
+[File Example:]
+
+[k3s_cluster]
+192.168.23.10 #node01 IP
+192.168.23.12  #node02 IP
+192.168.23.13   #node03 IP
+
+[master]
+192.168.23.10 #node01 IP
+
+[node]
+192.168.23.12 #node02 IP
+192.168.23.13  #node03 IP
+
+
+3. In your terminal run: `Make ansible` 
+
+### Installing k3s via Ansible:
+If you need to destroy the all nodes you must run: `make terraform_destroy`
+
 
 Now you should be able to connect with ssh in node1 instance and run kubectl commands.
 
