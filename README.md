@@ -13,13 +13,13 @@ Create a k3s cluster into OCI Always Free Tier Instances
 
 1. In your terminal run: `$make oci` 
 
-[OBS:] This commnat is an autommation to you authenticate in OCI, this command drive you to OCI page to you authorize the integration.
+[OBS:] This commnad is an autommation to you authenticate in OCI, this command drive you to OCI page to you authorize the integration.
 
 2. Now, run: `$make terraform`
 
-[OBS:] This commnat will call run a `$terraform init` and `$terraform apply --auto-approve` it's mean that you will start your cluster creation.
+[OBS:] This commnat will call run a `$terraform init` and `$terraform apply --auto-approve` command, it's mean that you will start your cluster creation.
 
-[OBS:] This repo is a Terraform module client and this repo should call this [Terraform module](https://github.com/alessonviana/OCI_MODULES)
+[OBS:] This repo is a Terraform module client calling this repo [Terraform module](https://github.com/alessonviana/OCI_MODULES)
 
 ### Installing k3s via Ansible:
 
@@ -45,10 +45,10 @@ Create a k3s cluster into OCI Always Free Tier Instances
 
 3. In your terminal run: `$make ansible` 
 
+4. Now you should be able to connect with ssh in node1 instance and run kubectl commands.
+
+
 ### Destroy K3S cluster in OCI::
-If you need to destroy the all nodes you must run: `$make terraform_destroy`
-
-
-Now you should be able to connect with ssh in node1 instance and run kubectl commands.
+- If you need to destroy the all nodes you must run: `$make terraform_destroy`
 
 Special thanks for [ampernetacle](https://github.com/jpetazzo/ampernetacle) and [k3s-ansible](https://github.com/k3s-io/k3s-ansible) projects
