@@ -1,6 +1,6 @@
 oci:
-	rm -r /Users/${USER}/.oci 
-	echo "38" | oci session authenticate
+	if [ -d "/Users/${USER}/.oci" ]; then rm -rf "/Users/${USER}/.oci"; fi
+	echo "43" | oci session authenticate
 
 terraform:
 	terraform -chdir=k3s-terraform/ init
