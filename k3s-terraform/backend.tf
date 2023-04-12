@@ -1,6 +1,15 @@
 terraform {
   backend "http" {
-    address       = "https://objectstorage.us-ashburn-1.oraclecloud.com/p/crjFp7rq_f-HYNjK7VXUC7-fOj3wsqdjlrhriAgsOzEQelytrKTKr9wK3oOvDTe0/n/ids4dyhxibcj/b/terraform-states/o/terraform_state.tfstate"
+    address       = "https://objectstorage.us-ashburn-1.oraclecloud.com/n/ids4dyhxibcj/b/terraform-states/o/terraform_state.tfstate"
     update_method = "PUT"
   }
 }
+#terraform {
+#  backend "s3" {
+#    bucket         = "terraform_state.tfstate"
+#    key            = "https://objectstorage.us-ashburn-1.oraclecloud.com/n/ids4dyhxibcj/b/terraform-states/o/terraform_state.tfstate"
+#    region         = "us-ashburn-1"
+#    profile        = "<nome_do_perfil_oci>"
+#    shared_credentials_file = "/Users/${USER}/.oci"
+#  }
+#}
