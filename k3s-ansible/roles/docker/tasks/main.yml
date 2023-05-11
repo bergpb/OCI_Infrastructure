@@ -44,6 +44,9 @@
     groups: docker
     append: yes
 
+- name: Start Docker
+  shell: "/etc/init.d/docker restart"
+
 - name: Pull default Docker image
   community.docker.docker_image:
     name: "{{ default_container_image }}"
