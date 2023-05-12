@@ -29,7 +29,7 @@
   tasks:
     - name: Rename labels in k3s nodes
       command: >-
-        kubectl label nodes {{ item }} kubernetes.io/role=worker
+        kubectl label nodes {{ item }} kubernetes.io/role=worker --overwrite
       loop:
         - node2
         - node3
