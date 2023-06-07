@@ -1,6 +1,6 @@
 ---
 - name: Prepare cluster installation
-  hosts: k3s_cluster
+  hosts: all
   user: ubuntu
   gather_facts: yes
   become: yes
